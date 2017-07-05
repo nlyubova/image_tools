@@ -1,0 +1,13 @@
+<launch>
+  <arg name="camera" default="camera" />
+
+  <node pkg="image_tools" type="image_convert_node" name="image_convert_node" output="screen" cwd="node">
+    <param name="camera" value="/$(arg camera)" />
+
+    <param name="image_topic_in" value="/$(arg camera)/color/image_raw" />
+    <param name="image_topic_out" value="/$(arg camera)/rgb/image_raw" />
+    <param name="required_encoding" value="sensor_msgs::image_encodings::RGB8" />
+
+  </node>
+
+</launch>
